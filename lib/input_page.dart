@@ -1,4 +1,11 @@
+import 'package:flu_bmi_calc/icon_content.dart';
+import 'package:flu_bmi_calc/reuseable_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+const bottomContainerHeight = 80.0;
+const activeCardColor = Color(0xFF1D1E33);
+const bottomContainerColor = Color(0xffeb1555);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key, required this.title});
@@ -39,10 +46,60 @@ class _InputPageState extends State<InputPage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: const Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Text('Body Text'),
+      body: Column(
+        children: [
+          const Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    color: activeCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    color: activeCardColor,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'FEMALE',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Expanded(
+            child: ReusableCard(
+              color: activeCardColor,
+            ),
+          ),
+          const Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(
+                    color: activeCardColor,
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    color: activeCardColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            color: bottomContainerColor,
+            margin: const EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: bottomContainerHeight,
+          ),
+        ],
       ),
     );
   }
