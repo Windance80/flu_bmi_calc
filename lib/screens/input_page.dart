@@ -1,6 +1,9 @@
+import 'package:flu_bmi_calc/components/bottom_button.dart';
 import 'package:flu_bmi_calc/constants.dart';
-import 'package:flu_bmi_calc/icon_content.dart';
-import 'package:flu_bmi_calc/reuseable_card.dart';
+import 'package:flu_bmi_calc/components/icon_content.dart';
+import 'package:flu_bmi_calc/screens/results_page.dart';
+import 'package:flu_bmi_calc/components/reuseable_card.dart';
+import 'package:flu_bmi_calc/components/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,8 +11,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
-  const InputPage({super.key, required this.title});
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -20,6 +21,8 @@ class InputPage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+
+  const InputPage({super.key, required this.title});
 
   @override
   State<InputPage> createState() => _InputPageState();
@@ -233,37 +236,19 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          BottomButton(
+            buttonTitle: 'CALCULATE',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  const RoundIconButton(
-      {super.key, required this.icon, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      elevation: 0.0,
-      shape: const CircleBorder(),
-      fillColor: const Color(0xff4c4f5e),
-      constraints: const BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      child: Icon(icon),
     );
   }
 }

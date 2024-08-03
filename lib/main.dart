@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:flu_bmi_calc/input_page.dart';
+import 'package:flu_bmi_calc/screens/input_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -46,7 +46,10 @@ class BMICalculator extends StatelessWidget {
         ),
         scaffoldBackgroundColor: colorScheme.primary,
       ),
-      home: const InputPage(title: 'BMI CALCULATOR'),
+      // home: const InputPage(title: 'BMI CALCULATOR'),
+      routes: {
+        '/': (context) => InputPage(title: 'BMI CALCULATOR'),
+      },
     );
   }
 }
