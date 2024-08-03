@@ -6,7 +6,6 @@ import 'package:flu_bmi_calc/screens/results_page.dart';
 import 'package:flu_bmi_calc/components/reuseable_card.dart';
 import 'package:flu_bmi_calc/components/round_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum Gender { male, female }
@@ -198,7 +197,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'AGE',
                           style: kLabelTextStyle,
                         ),
@@ -217,7 +216,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
