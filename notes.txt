@@ -1,0 +1,2 @@
+notes:
+- add database to keep track of bmi history
